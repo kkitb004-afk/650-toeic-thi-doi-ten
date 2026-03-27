@@ -3,8 +3,9 @@ package client;
 import java.awt.BorderLayout;
 import java.awt.Color;
 
-
 import java.awt.Cursor;
+
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -175,7 +176,6 @@ public class Client extends JFrame {
 
     private JPanel buildTopologyCard() {
         JPanel card = createCard(new BorderLayout(12, 12));
-
         JLabel sectionTitle = new JLabel("Truc quan hoa token ring");
         sectionTitle.setFont(sectionTitle.getFont().deriveFont(Font.BOLD, 20f));
         sectionTitle.setForeground(TEXT_COLOR);
@@ -314,24 +314,15 @@ public class Client extends JFrame {
         dot.setBackground(color);
         dot.setPreferredSize(new Dimension(12, 12));
         dot.setBorder(BorderFactory.createLineBorder(color.darker(), 1));
-
         JLabel label = new JLabel(labelText);
         label.setForeground(TEXT_COLOR);
         label.setFont(label.getFont().deriveFont(Font.PLAIN, 12f));
-
         item.add(dot);
+
         item.add(label);
         return item;
     }
 
-    private JPanel createCard(BorderLayout layout) {
-        JPanel card = new JPanel(layout);
-        card.setBackground(CARD_BACKGROUND);
-        card.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createLineBorder(new Color(222, 227, 234), 1),
-                BorderFactory.createEmptyBorder(18, 18, 18, 18)));
-        return card;
-    }
 
     private String[] buildNodeChoices() {
         String[] nodeChoices = new String[endpoints.length];
@@ -341,6 +332,16 @@ public class Client extends JFrame {
         return nodeChoices;
     }
 
+    
+    private JPanel createCard(BorderLayout layout) {
+        JPanel card = new JPanel(layout);
+        card.setBackground(CARD_BACKGROUND);
+        card.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(222, 227, 234), 1),
+                BorderFactory.createEmptyBorder(18, 18, 18, 18)));
+        return card;
+    }
+    
     private void submitPrintJob() {
         String jobId = jobIdField.getText().trim();
         String content = contentField.getText().trim();
